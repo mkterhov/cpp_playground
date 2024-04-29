@@ -43,15 +43,13 @@ Zoo::Zoo(const Zoo& obj) : m_size(obj.m_size) {
 
 Zoo& Zoo::operator=(const Zoo& obj)
 {
-    if (this != &obj) {  // Protect against self-assignment
-        // Clean up current animalFactory and animals array
+    if (this != &obj) {
         delete animalFactory;
         for (int i = 0; i < m_size; i++) {
             delete animals[i];
         }
         delete[] animals;
 
-        // Deep copy of animals
         m_size = obj.m_size;
         this->animalFactory = new AnimalFactory;
         this->animals = new Animal * [m_size];
