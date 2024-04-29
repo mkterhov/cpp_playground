@@ -9,6 +9,7 @@
 #include "Dog.h"
 
 const std::map<std::string, int> AnimalFactory::m_animalTypes = { {"Lion", 0}, {"Rooster", 1}, {"Eagle", 2}, {"Dog", 3},  {"Whale", 4} };
+const std::map<std::string, std::string> AnimalFactory::m_animalSpecies = { {"Lion", "Mammal"}, {"Rooster", "Avian"}, {"Eagle", "Avian"}, {"Dog", "Mammal"},  {"Whale", "Mammal"} };
 
 Animal* AnimalFactory::createAnimalDefault(const std::string& type)
 {
@@ -33,12 +34,14 @@ Animal* AnimalFactory::createAnimalDefault(const std::string& type)
         break;
     case 3:
         animal = new Dog();
-
         break;
     case 4:
         animal = new Whale();
         break;    
     }
+
+    animal->setSpecies(m_animalSpecies.at(type));
+    animal->setName(type);
 
     return animal;
 };

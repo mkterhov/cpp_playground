@@ -3,7 +3,7 @@
 
 void Dog::voice()
 {
-	std::cout << "Bark sounds" << std::endl;
+	std::cout << "I am a " << this->getName() << " of species " << this->getSpecies() << std::endl;
 }
 
 Dog::Dog() {}

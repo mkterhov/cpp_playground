@@ -3,7 +3,7 @@
 
 void Rooster::voice()
 {
-	std::cout << "Rooster crowing" << std::endl;
+	std::cout << "I am a " << this->getName() << " of species " << this->getSpecies() << std::endl;
 }
 
 Rooster::Rooster() {}
