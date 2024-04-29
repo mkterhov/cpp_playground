@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <map>
-#include "animal.h"
+#include "Animal.h"
 
 class AnimalFactory
 {
