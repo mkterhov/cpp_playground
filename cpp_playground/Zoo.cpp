@@ -70,7 +70,7 @@ void Zoo::populate()
 
 void Zoo::printAnimals() const
 {
-    for (int i = 0; i < 5; ++i)
+    for (int i = 0; i < m_size; ++i)
     {
         animals[i]->voice();
     }
