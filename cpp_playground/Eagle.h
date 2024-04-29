@@ -5,6 +5,5 @@ class Eagle : public Animal
 public:
 	Eagle();
 	virtual void voice();
-
 };
 

@@ -135,6 +135,7 @@
     <ClCompile Include="Lion.cpp" />
     <ClCompile Include="Rooster.cpp" />
     <ClCompile Include="Whale.cpp" />
+    <ClCompile Include="Zoo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animal.h" />
@@ -144,6 +145,7 @@
     <ClInclude Include="Lion.h" />
     <ClInclude Include="Rooster.h" />
     <ClInclude Include="Whale.h" />
+    <ClInclude Include="Zoo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

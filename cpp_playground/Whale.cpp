@@ -3,7 +3,7 @@
 
 void Whale::voice()
 {
-	std::cout << "Whale making pulsing sounds" << std::endl;
+	std::cout << "I am a " << this->getName() << " of species " << this->getSpecies() << std::endl;
 }
 
 Whale::Whale() {}

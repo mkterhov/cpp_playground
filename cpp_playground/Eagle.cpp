@@ -3,7 +3,7 @@
 
 void Eagle::voice()
 {
-	std::cout << "Eagle screeching" << std::endl;
+	std::cout << "I am a " << this->getName() << " of species " << this->getSpecies() << std::endl;
 }
 
 Eagle::Eagle() {}

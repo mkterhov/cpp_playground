@@ -3,7 +3,7 @@
 
 void Lion::voice()
 {
-	std::cout << "Lions roar" << std::endl;
+	std::cout << "I am a " << this->getName() << " of species " << this->getSpecies() << std::endl;
 }
 
 Lion::Lion(){}

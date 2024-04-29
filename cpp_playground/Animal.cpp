@@ -2,6 +2,16 @@
 
 Animal::Animal(const std::string& species) : m_species(species) {}
 
+std::string Animal::getName() const
+{
+    return m_name;
+}
+
+void Animal::setName(const std::string& name)
+{
+    m_name = name;
+}
+
 std::string Animal::getSpecies() const
 {
     return m_species;
