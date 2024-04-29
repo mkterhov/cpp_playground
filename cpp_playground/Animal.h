@@ -10,6 +10,7 @@ protected:
 public:
     Animal() {};
     Animal(const std::string&);
+    virtual ~Animal();
     virtual void voice() = 0;
     std::string getName() const;
     void setName(const std::string&);

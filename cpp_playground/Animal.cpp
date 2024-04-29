@@ -2,6 +2,10 @@
 
 Animal::Animal(const std::string& species) : m_species(species) {}
 
+Animal::~Animal()
+{
+}
+
 std::string Animal::getName() const
 {
     return m_name;
