@@ -54,7 +54,7 @@ Zoo& Zoo::operator=(const Zoo& obj)
         this->animalFactory = new AnimalFactory;
         this->animals = new Animal * [m_size];
         for (int i = 0; i < m_size; i++) {
-            this->animals[i] = this->animalFactory->createAnimalDefault(obj.animals[i]->getName());
+            this->animals[i] = this->animalFactory->createAnimalByType(obj.animals[i]->getType(), obj.animals[i]->getAge(), obj.animals[i]->getWeight());
         }
     }
     return *this;
@@ -64,7 +64,7 @@ void Zoo::populate()
 {
     for (int i = 0; i < m_size; ++i)
     {
-        animals[i] = animalFactory->createAnimalDefault(types.at(i % types.size()));
+        animals[i] = animalFactory->createAnimalByType(types.at(i % types.size()), i + i % types.size(), i % types.size()+i);
     }
 }
 

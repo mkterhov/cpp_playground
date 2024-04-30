@@ -16,8 +16,9 @@ To compile the project, navigate to the project root directory in your terminal 
 make
 ```
 
-```
 ## Cleaning the build
+
+```
 
 make clean
 
