@@ -2,16 +2,14 @@
 //
 
 #include <iostream>
-#include "Animal.h"
-#include "AnimalFactory.h"
-#include "Zoo.h"
+#include "ZooSingleton.h"
 
 
 int main()
 {
-    Zoo zoo;
-    zoo.populate();
-    zoo.printAnimals();
+    ZooSingleton* zoo = ZooSingleton::getInstance(10);
+    zoo->populate();
+    zoo->printAnimals();
 
     return 0;
 }
