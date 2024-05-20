@@ -1,4 +1,5 @@
 #include "Zoo.h"
+#include <iostream>
 
 const std::map<int, std::string> Zoo::types = {
     {0, "Lion"},
@@ -24,7 +25,7 @@ Zoo::~Zoo()
 
     for (int i = 0; i < m_size; i++)
     {
-        delete this->animals[i];
+        delete[] this->animals[i];
         this->animals[i] = nullptr;
     }
 
@@ -32,14 +33,41 @@ Zoo::~Zoo()
     this->animals = nullptr;
 }
 
-Zoo::Zoo(const Zoo& obj) : m_size(obj.m_size) {
+Zoo::Zoo(const Zoo& obj) : m_size(obj.m_size) 
+{
     this->animalFactory = new AnimalFactory;
+
     this->animals = new Animal * [m_size];
     for (int i = 0; i < m_size; i++)
     {
         this->animals[i] = obj.animals[i];
     }
 }
+
+Zoo::Zoo(Zoo&& obj) noexcept : m_size(obj.m_size), animalFactory(obj.animalFactory), animals(obj.animals)
+{
+    std::cout << "moved" << std::endl;
+
+    obj.m_size = 0;
+    obj.animalFactory = nullptr;
+    obj.animals = nullptr;
+}
+
+Zoo& Zoo::operator=(Zoo&& obj) noexcept 
+{
+    if (this != &obj) {
+        std::cout << "moved =" << std::endl;
+        m_size = obj.m_size;
+        animalFactory = obj.animalFactory;
+        animals = obj.animals;
+
+        obj.m_size = 0;
+        obj.animalFactory = nullptr;
+        obj.animals = nullptr;
+    }
+    return *this;
+}
+
 
 Zoo& Zoo::operator=(const Zoo& obj)
 {
@@ -70,6 +98,12 @@ void Zoo::populate()
 
 void Zoo::printAnimals() const
 {
+    if (animals == nullptr)
+    {
+        std::cout << "No animals in the zoo" << std::endl;
+        return;
+    }
+
     for (int i = 0; i < m_size; ++i)
     {
         animals[i]->voice();

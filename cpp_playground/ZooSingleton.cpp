@@ -1,4 +1,5 @@
 #include "ZooSingleton.h"
+#include <iostream>
 
 ZooSingleton* ZooSingleton::singleton = nullptr;
 
@@ -47,10 +48,11 @@ ZooSingleton::ZooSingleton(const int& size) : m_size(size) {
 
 ZooSingleton::~ZooSingleton()
 {
+    std::cout << "this executes" << std::endl;
     delete this->animalFactory;
     this->animalFactory = nullptr;
 
-    for (int i = 0; i < m_size; i++)
+    for (int i = 0; i < m_size; ++i)
     {
         delete this->animals[i];
         this->animals[i] = nullptr;
@@ -59,6 +61,5 @@ ZooSingleton::~ZooSingleton()
     delete[] this->animals;
     this->animals = nullptr;
 
-    delete singleton;
     singleton = nullptr;
 }

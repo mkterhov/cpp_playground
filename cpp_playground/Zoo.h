@@ -15,7 +15,9 @@ public:
 	Zoo(const int&);
 	~Zoo();
 	Zoo& operator=(const Zoo&);
+	Zoo& operator=(Zoo&& obj) noexcept;
 	Zoo(const Zoo&);
+	Zoo(Zoo&&) noexcept;
 
 	static const std::map<int, std::string> types;
 	void populate();
