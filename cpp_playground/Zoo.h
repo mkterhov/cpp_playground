@@ -12,7 +12,7 @@ private:
 	int m_size = 10;
 public:
 	Zoo();
-	Zoo(const int&);
+	explicit Zoo(const int&);
 	~Zoo();
 	Zoo& operator=(const Zoo&);
 	Zoo& operator=(Zoo&& obj) noexcept;
@@ -23,5 +23,6 @@ public:
 	void populate();
 
 	void printAnimals() const;
+	void printLargestAnimals() const;
 };
 

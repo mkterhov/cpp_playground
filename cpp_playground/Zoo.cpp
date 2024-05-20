@@ -1,5 +1,7 @@
 #include "Zoo.h"
 #include <iostream>
+#include <vector>
+#include <algorithm>
 
 const std::map<int, std::string> Zoo::types = {
     {0, "Lion"},
@@ -98,7 +100,7 @@ void Zoo::populate()
 
 void Zoo::printAnimals() const
 {
-    if (animals == nullptr)
+    if (animals == nullptr || m_size == 0)
     {
         std::cout << "No animals in the zoo" << std::endl;
         return;
@@ -106,6 +108,28 @@ void Zoo::printAnimals() const
 
     for (int i = 0; i < m_size; ++i)
     {
-        animals[i]->voice();
+        animals[i]->printInfo();
+    }
+}
+
+void Zoo::printLargestAnimals() const 
+{
+    if (animals == nullptr)
+    {
+        std::cout << "No animals in the zoo" << std::endl;
+        return;
+    }
+
+    std::vector<Animal*> sortedAnimals(animals, animals + m_size);
+    std::sort(sortedAnimals.begin(), sortedAnimals.end(), [](Animal* a, Animal* b) {
+            return *a > *b;
+    });
+
+    int max = [](int size) { return size > 3 ? 3 : size; }(sortedAnimals.size());
+
+    std::cout << "Top " << max << " largest animals:" << std::endl;
+
+    for (int i = 0; i < max && i < sortedAnimals.size(); ++i) {
+        sortedAnimals[i]->printInfo();
     }
 }
